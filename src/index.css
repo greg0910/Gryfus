@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #0f1110;
+  --color-main-dark-bg: #424032;
+  --color-light-bg: #e2e1db;
+  --color-text-light: #ffffff;
+  --color-text-muted: #dcded3;
+  --color-text-dark: #1a1a1a;
+  --color-primary: #dcbe8c;
+  --color-primary-hover: #e8cda3;
+  
+  --font-title: 'Montserrat', sans-serif;
+  --font-body: 'Archivo Narrow', sans-serif;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Global Animations */
+@keyframes subtleZoom {
+  0% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Global Buttons */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-top: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+

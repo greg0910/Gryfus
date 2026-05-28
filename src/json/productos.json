@@ -1,0 +1,127 @@
+[
+    {
+        "id": 1,
+        "nombre": "CAMISETA BASIC",
+        "categoria": "BASIC",
+        "hora": "2–6 horas",
+        "usos": [
+            "Trail running",
+            "Power hiking",
+            "Outdoor diario"
+        ],
+        "beneficios": [
+            "Evacuación rápida de humedad",
+            "Secado acelerado",
+            "Ventilación estratégica",
+            "Bajo peso"
+        ],
+       
+        "Sensación": [
+            "Ligera",
+            "Estable",
+            "Adaptable"
+        ],
+        "imagen": "./assets/images/productos/Producto_1.png",
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 2,
+        "nombre": "ESQUELETO BASIC",
+        "categoria": "BASIC",
+        "hora": "3–8 horas",
+        "usos": [
+            "Trail running",
+            "Ascensos largos",
+            "Power hiking"
+        ],
+        "beneficios": [
+            "Ventilación extrema",
+            "Máxima respirabilidad",
+            "Secado rápido",
+            "Libertad de movimiento"
+        ],
+        
+        "Sensación": [
+            "Flujo térmico continuo en esfuerzo prolongado"
+        ],
+        "sugerencia_visual": [
+            "Movimiento real",
+            "Aire / respirabilidad",
+            "Close-up mesh",
+            "Sudoración ligera"
+        ],
+        "imagen": "./assets/images/productos/Producto_2.png",
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 3,
+        "nombre": "PANTALONETA BASIC",
+        "categoria": "BASIC",
+        "hora": "2–6 horas",
+        "usos": [
+            "Trail running",
+            "Power hiking",
+            "Outdoor diario"
+        ],
+        "beneficios": [
+            "Libertad de zancada",
+            "Secado rápido",
+            "Confort prolongado",
+            "Estabilidad en movimiento"
+        ],
+      
+        "Sensación": [
+            "Movilidad limpia",
+            "Natural"
+        ],
+        "imagen": "./assets/images/productos/Producto_3.png",
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 4,
+        "nombre": "BUFF BASIC",
+        "categoria": "BASIC",
+        "hora": "1–6 horas",
+        "usos": [
+            "Trail running",
+            "Trekking",
+            "Outdoor diario"
+        ],
+        "beneficios": [
+            "Alta respirabilidad",
+            "Protección adaptable",
+            "Secado rápido",
+            "Bajo peso"
+        ],
+       
+        "Sensación": [
+            "Versátil",
+            "Adaptable"
+        ],
+        "imagen": "./assets/images/productos/Producto_4.png",
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 5,
+        "nombre": "MEDIAS TRAIL BASIC",
+        "categoria": "BASIC",
+        "hora": "2–8 horas",
+        "usos": [
+            "Trail running",
+            "Ascensos largos",
+            "Power hiking"
+        ],
+        "beneficios": [
+            "Ventilación localizada",
+            "Soporte en zonas críticas",
+            "Gestión de humedad",
+            "Estabilidad prolongada"
+        ],
+       
+        "Sensación": [
+            "Soporte técnico sin rigidez excesiva"
+        ],
+        "imagen": "./assets/images/productos/Producto_5.png",
+        "cta": "Pre-Order"
+    }
+]

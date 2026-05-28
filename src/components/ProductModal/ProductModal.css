@@ -1,0 +1,333 @@
+/* Modal Styles */
+.product-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 11, 10, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  overflow-y: auto;
+  padding-top: 5vh;
+}
+
+.product-modal-content {
+  background-color: var(--color-light-bg);
+  width: 100%;
+  max-width: 600px;
+  height: 95vh; /* Ocupar máximo 95vh para asegurar que todo quepa sin scroll de la ventana */
+  max-height: 95vh;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  margin: auto auto 0 auto; /* Empuja el modal hacia abajo para que toque el borde inferior */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--color-text-dark);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-scrollable {
+  overflow-y: hidden; /* Sin scroll interno */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 0; 
+}
+
+.modal-img-wrapper {
+  margin-bottom: 0;
+  background-color: #d1cfca;
+  flex: 1 1 auto; /* Toma el espacio sobrante y puede encogerse */
+  min-height: 0; /* Permite que se encoja por debajo de su tamaño intrínseco */
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-img-wrapper .product-img {
+  object-fit: cover; 
+  padding: 0; 
+  width: 100%;
+  height: 100%;
+}
+
+/* Hacer que el botón no se vea tan gigantesco en celular */
+.modal-details .product-cta,
+.notify-form-container .notify-btn {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 0 !important; /* Forzar que no haya espacio extra */
+}
+
+.modal-details {
+  background-color: #e6e5e0;
+  padding:1rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto; /* La información de texto no se encoge, toma su alto natural */
+  overflow-y: auto; /* Si por algún milagro el texto es más alto que la pantalla, este bloque puede scrollear solo */
+}
+
+.modal-header-text {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.modal-header-text .product-name {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.modal-header-text .product-category {
+  font-size: 0.9rem;
+  color: #bfa17c;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.modal-info-card {
+  background-color: #f2f1ec;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-icons-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.modal-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  color: #333;
+  flex: 1;
+}
+
+.modal-icon-item span {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.modal-icon-item.time-item span {
+  font-size: 0.7rem;
+  max-width: none;
+}
+
+.modal-divider {
+  border: 0;
+  height: 1px;
+  background-color: rgba(0,0,0,0.1);
+  margin: 0;
+}
+
+.modal-section-title {
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: -0.1rem;
+  text-transform: uppercase;
+}
+
+.custom-check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 2rem 2rem;
+  align-items: center;
+}
+
+.custom-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.2;
+}
+
+.sensacion-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.product-cta {
+  background-color: #d1ba98;
+  color: #000;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.product-cta:hover {
+  background-color: #bfa17c;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .product-modal-overlay {
+    align-items: center;
+    padding-top: 0;
+    overflow-y: hidden; /* En PC no scrolleamos el fondo, el modal cabe bien */
+  }
+  
+  .product-modal-content {
+    border-radius: 12px;
+    height: auto;
+    max-height: 95vh;
+    max-width: 1000px; 
+    margin-top: 0; /* Quitar el auto del móvil para que se centre perfectamente */
+  }
+  
+  .modal-scrollable {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding-bottom: 0;
+    overflow: hidden;
+  }
+  
+  .modal-img-wrapper {
+    flex: 1;
+    height: auto;
+  }
+  
+  .modal-img-wrapper .product-img {
+    height: 100%;
+    object-fit: cover; 
+    padding: 0;
+  }
+  
+  .modal-details {
+    flex: 1;
+    overflow-y: visible; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  
+  .product-modal-close {
+    background: var(--color-bg);
+    color: var(--color-text-light);
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    transition: var(--transition-smooth);
+  }
+  
+  .product-modal-close:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+  }
+}
+
+/* Modal secundario para Notifícame */
+.notify-modal-overlay {
+  position: absolute; /* Para que se superponga solo al modal actual o fixed si es en toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1001; /* Mayor que el modal principal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.notify-modal-content {
+  background-color: var(--color-light-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.notify-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
