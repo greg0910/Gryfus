@@ -59,7 +59,7 @@ export const ProductPage = () => {
             </button>
 
             <div className="product-page-content">
-                <div className="product-img-wrapper page-img-wrapper">
+                <div className="page-img-wrapper">
                     <span className="product-number">0{selectedProduct.id}</span>
                     <img 
                         src={getProductImage(selectedProduct.imagen)} 

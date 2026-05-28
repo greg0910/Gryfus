@@ -40,7 +40,6 @@
 }
 
 .page-img-wrapper {
-  background-color: #d1cfca;
   position: relative;
   width: 100%;
   height: 45vh; /* Enough height for image */
@@ -53,6 +52,7 @@
   object-fit: cover; 
   width: 100%;
   height: 100%;
+  border-radius: 0 !important; /* Forzar puntas cuadradas */
 }
 
 .page-details {
