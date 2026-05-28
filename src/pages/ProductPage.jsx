@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { TbX, TbRun, TbTrekking, TbMountain, TbBackpack, TbShoppingCart, TbClock, TbCheck, TbFeather, TbArrowLeft } from 'react-icons/tb';
+import { TbX, TbRun, TbTrekking, TbMountain, TbBackpack, TbShoppingCart, TbClock, TbCheck, TbFeather, TbArrowLeft, TbChevronLeft, TbChevronRight } from 'react-icons/tb';
 import productosData from '../json/productos.json';
 import './ProductPage.css';
 
@@ -34,6 +34,7 @@ export const ProductPage = () => {
     const navigate = useNavigate();
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isNotifyView, setIsNotifyView] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     useEffect(() => {
         // Scroll to top when page loads
@@ -49,7 +50,13 @@ export const ProductPage = () => {
         }
     }, [id, navigate]);
 
+    useEffect(() => {
+        setCurrentImageIndex(0);
+    }, [selectedProduct]);
+
     if (!selectedProduct) return null;
+
+    const images = Array.isArray(selectedProduct.imagen) ? selectedProduct.imagen : [selectedProduct.imagen];
 
     return (
         <div className="product-page-container">
@@ -59,13 +66,17 @@ export const ProductPage = () => {
             </button>
 
             <div className="product-page-content">
-                <div className="page-img-wrapper">
-                    <span className="product-number">0{selectedProduct.id}</span>
-                    <img 
-                        src={getProductImage(selectedProduct.imagen)} 
-                        alt={selectedProduct.nombre} 
-                        className="product-img"
-                    />
+                <div className="page-img-wrapper" style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}>
+                    <span className="product-number" style={{ position: 'absolute', zIndex: 10 }}>0{selectedProduct.id}</span>
+                    {images.map((img, idx) => (
+                        <img 
+                            key={idx}
+                            src={getProductImage(img)} 
+                            alt={`${selectedProduct.nombre} ${idx + 1}`} 
+                            className="product-img"
+                            style={{ flex: '0 0 100%', width: '100%', height: '100%', scrollSnapAlign: 'center', objectFit: 'cover' }}
+                        />
+                    ))}
                 </div>
                 
                 <div className="product-details page-details">

@@ -4,6 +4,9 @@ import './Products.css';
 
 // Helper to resolve product image paths from the JSON
 const getProductImage = (imagePath) => {
+    if (Array.isArray(imagePath)) {
+        imagePath = imagePath[0];
+    }
     const filename = imagePath.split('/').pop();
     return new URL(`../../assets/images/productos/${filename}`, import.meta.url).href;
 };
@@ -29,13 +32,14 @@ const getUsoIcon = (uso) => {
 
 export const ProductCard = ({ producto, index, onClick }) => {
     return (
-        <article className="product-card">
-            <div className="product-img-wrapper" onClick={onClick} style={{ cursor: 'pointer' }}>
-                <span className="product-number">0{index + 1}</span>
+        <article className="product-card" onClick={onClick} style={{ cursor: 'pointer' }}>
+            <span className="product-number">0{index + 1}</span>
+            <div className="product-img-wrapper">
                 <img src={getProductImage(producto.imagen)} alt={producto.nombre} className="product-img" />
             </div>
             <div className="product-details">
                 <h3 className="product-name">{producto.nombre}</h3>
+                <span className={`gender-tag tag-${producto.genero.toLowerCase()}`}>{producto.genero.toUpperCase()}</span>
             </div>
         </article>
     );

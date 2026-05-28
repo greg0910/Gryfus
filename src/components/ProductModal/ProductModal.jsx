@@ -1,5 +1,5 @@
 import React from 'react';
-import { TbX, TbRun, TbTrekking, TbMountain, TbBackpack, TbShoppingCart, TbClock, TbCheck, TbFeather } from 'react-icons/tb';
+import { TbX, TbRun, TbTrekking, TbMountain, TbBackpack, TbShoppingCart, TbClock, TbCheck, TbFeather, TbChevronLeft, TbChevronRight } from 'react-icons/tb';
 import './ProductModal.css';
 
 // Helper to resolve product image paths from the JSON
@@ -29,6 +29,7 @@ const getUsoIcon = (uso) => {
 
 export const ProductModal = ({ selectedProduct, onClose }) => {
     const [isNotifyView, setIsNotifyView] = React.useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
 
     React.useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -37,7 +38,22 @@ export const ProductModal = ({ selectedProduct, onClose }) => {
         };
     }, []);
 
+    // Reset image index when product changes
+    React.useEffect(() => {
+        setCurrentImageIndex(0);
+    }, [selectedProduct]);
+
     if (!selectedProduct) return null;
+
+    const images = Array.isArray(selectedProduct.imagen) ? selectedProduct.imagen : [selectedProduct.imagen];
+
+    const nextImage = () => {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    };
 
     const handleNotifyClick = () => {
         setIsNotifyView(true);
@@ -55,13 +71,29 @@ export const ProductModal = ({ selectedProduct, onClose }) => {
                     <TbX size={24} />
                 </button>
                 <div className="modal-scrollable">
-                    <div className="product-img-wrapper modal-img-wrapper">
-                        <span className="product-number">0{selectedProduct.id}</span>
+                    <div className="product-img-wrapper modal-img-wrapper" style={{ position: 'relative', overflow: 'hidden' }}>
+                        <span className="product-number" style={{ position: 'absolute', zIndex: 10 }}>0{selectedProduct.id}</span>
                         <img 
-                            src={getProductImage(selectedProduct.imagen)} 
-                            alt={selectedProduct.nombre} 
+                            src={getProductImage(images[currentImageIndex])} 
+                            alt={`${selectedProduct.nombre} ${currentImageIndex + 1}`} 
                             className="product-img"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                         />
+                        {images.length > 1 && (
+                            <>
+                                <button onClick={prevImage} style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', zIndex: 10, background: 'rgba(255,255,255,0.7)', border: 'none', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                    <TbChevronLeft size={20} color="#000" />
+                                </button>
+                                <button onClick={nextImage} style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', zIndex: 10, background: 'rgba(255,255,255,0.7)', border: 'none', borderRadius: '50%', width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                                    <TbChevronRight size={20} color="#000" />
+                                </button>
+                                <div style={{ position: 'absolute', bottom: 15, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 6, zIndex: 10 }}>
+                                    {images.map((_, idx) => (
+                                        <div key={idx} style={{ width: 8, height: 8, borderRadius: '50%', background: idx === currentImageIndex ? '#0f1110' : 'rgba(0,0,0,0.3)', transition: 'background 0.3s' }} />
+                                    ))}
+                                </div>
+                            </>
+                        )}
                     </div>
                     
                     <div className="product-details modal-details">

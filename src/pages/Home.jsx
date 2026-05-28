@@ -11,6 +11,7 @@ export const Home = () => {
     const navigate = useNavigate();
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [categoryFilter, setCategoryFilter] = useState('All');
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -38,8 +39,8 @@ export const Home = () => {
 
     return (
         <div className="home-page">
-            <Hero />
-            <Products onProductSelect={handleProductSelect} />
+            <Hero onCategorySelect={setCategoryFilter} categoryFilter={categoryFilter} />
+            <Products onProductSelect={handleProductSelect} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />
             <System />
             <Footer />
             <ScrollToTop />

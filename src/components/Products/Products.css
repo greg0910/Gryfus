@@ -42,18 +42,25 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background: transparent;
+  background: #ffffff;
   border-radius: 12px;
-  overflow: hidden;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
 .product-img-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  background-color: #d1cfca;
+  aspect-ratio: 1 / 1;
+  background-color: #f6f6f6;
+  border-radius: 8px;
   overflow: hidden;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 .product-number {
@@ -61,10 +68,10 @@
   top: 1rem;
   left: 1rem;
   font-family: var(--font-title);
-  font-size: 1rem;
-  color: #fff;
+  font-size: 0.9rem;
+  color: #1a1a1a;
   z-index: 2;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .product-img {
@@ -72,6 +79,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  mix-blend-mode: multiply; /* Optional, helps image blend with bg */
 }
 
 .product-card:hover .product-img {
@@ -79,153 +87,49 @@
 }
 
 .product-card .product-details {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 3rem 1rem 1.5rem;
-  background: linear-gradient(to top, rgba(15, 17, 16, 0.95), transparent);
+  position: static;
+  padding: 0;
+  background: none;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  pointer-events: none;
+  align-items: flex-start;
+  pointer-events: auto;
 }
 
 .product-card .product-name {
   font-family: var(--font-title);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 800;
-  margin-bottom: 0;
-  color: #ffffff;
+  margin-bottom: 0.8rem;
+  color: #0f1110;
   text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-shadow: none;
 }
 
-.product-category {
-  font-size: 0.9rem;
+.gender-tag {
+  font-size: 0.6rem;
   font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-text-dark);
-  margin-bottom: 1rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
 }
-
-.product-short-desc {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  color: #333;
-  min-height: 3em;
+.tag-hombre {
+  background-color: #4a5c39;
+  color: #fff;
 }
-
-.product-time {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 1.5rem;
+.tag-mujer {
+  background-color: #d1bfae;
+  color: #fff;
 }
-
-.uses-list, .benefits-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.uses-list {
-  min-height: 6em;
-}
-
-.benefits-list {
-  min-height: 8em;
-}
-
-.uses-list li, .benefits-list li {
-  font-size: 0.85rem;
-  color: #444;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  line-height: 1.3;
-}
-
-.uses-list li svg {
-  margin-top: 0.15rem;
-  color: #444;
-}
-
-.bullet {
-  font-size: 1.2rem;
-  line-height: 0.8;
-  color: #444;
-}
-
-.product-meta {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 3em;
-}
-
-.meta-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-text-dark);
-  margin-bottom: 0.2rem;
-}
-
-.meta-value {
-  font-size: 0.85rem;
-  color: #444;
+.tag-unisex {
+  background-color: #8c6e4a;
+  color: #fff;
 }
 
 /* Tablet adjustments (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .products-grid {
     gap: 0.8rem;
-  }
-  .product-details {
-    padding: 0.6rem;
-    font-size: 0.7rem;
-  }
-  .product-name {
-    font-size: 0.85rem;
-    margin-bottom: 0.2rem;
-    height: 2.4rem;
-    overflow: hidden;
-  }
-  .product-category {
-    font-size: 0.65rem;
-    margin-bottom: 0.5rem;
-    height: 1rem;
-  }
-  .product-short-desc {
-    font-size: 0.7rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-    height: 2.6rem;
-    overflow: hidden;
-  }
-  .product-time {
-    font-size: 0.65rem;
-    margin-bottom: 0.8rem;
-    height: 1rem;
-  }
-  .uses-list {
-    min-height: 4.5rem;
-  }
-  .benefits-list {
-    min-height: 5.5rem;
-  }
-  .uses-list li, .benefits-list li {
-    font-size: 0.65rem;
-    padding: 0.15rem 0;
-  }
-  .uses-list svg {
-    width: 12px;
-    height: 12px;
   }
 }
 
@@ -251,41 +155,11 @@
   .product-card {
     min-width: 80vw;
     scroll-snap-align: center;
-    cursor: pointer;
-    position: relative;
-    background: transparent;
-    border: none;
-    padding: 0;
   }
 
   .product-img-wrapper {
-    margin-bottom: 0;
-    height: 55vh;
-    border-radius: 12px;
-  }
-
-  .product-card .product-details {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 3rem 1.5rem 1.5rem;
-    background: linear-gradient(to top, rgba(15, 17, 16, 0.95), transparent);
-    border-radius: 0 0 12px 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-
-
-  .product-card .product-name {
-    margin-bottom: 0;
-    text-align: left;
-    font-size: 1.4rem;
-    color: #ffffff;
-    min-height: auto;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+    border-radius: 8px;
   }
 }
 
@@ -294,3 +168,90 @@
     cursor: default;
   }
 }
+
+/* Filters */
+.header-line {
+  width: 40px;
+  height: 2px;
+  background-color: #4a5c39;
+  margin-top: 15px;
+}
+
+.gender-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.4rem 1.4rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+.filter-btn.active-hombre {
+  background: #4a5c39;
+  color: #fff;
+  border-color: #4a5c39;
+}
+
+.filter-btn.active-all {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+.filter-btn.active-mujer {
+  background: #d1bfae;
+  color: #fff;
+  border-color: #d1bfae;
+}
+
+.category-filter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f0f0f0;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.clear-filter-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-filter-btn:hover {
+  color: #000;
+}
+
+.no-products-msg {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 3rem;
+  font-family: var(--font-body);
+}
+

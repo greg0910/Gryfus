@@ -1,8 +1,9 @@
 [
     {
         "id": 1,
-        "nombre": "CAMISETA BASIC",
+        "nombre": "CAMISETA BASIC HOMBRE",
         "categoria": "BASIC",
+        "genero":"hombre",
         "hora": "2–6 horas",
         "usos": [
             "Trail running",
@@ -21,17 +22,44 @@
             "Estable",
             "Adaptable"
         ],
-        "imagen": "./assets/images/productos/Producto_1.png",
+        "imagen": ["./assets/images/productos/cam-H.jpg","./assets/images/productos/cam-H-back.jpg"],
         "cta": "Pre-Order"
     },
     {
         "id": 2,
-        "nombre": "ESQUELETO BASIC",
+        "nombre": "CAMISETA BASIC MUJER",
         "categoria": "BASIC",
+        "genero":"mujer",
+        "hora": "2–6 horas",
+        "usos": [
+            "Trail running",
+            "Power hiking",
+            "Outdoor diario"
+        ],
+        "beneficios": [
+            "Evacuación rápida de humedad",
+            "Secado acelerado",
+            "Ventilación estratégica",
+            "Bajo peso"
+        ],
+       
+        "Sensación": [
+            "Ligera",
+            "Estable",
+            "Adaptable"
+        ],
+        "imagen": ["./assets/images/productos/cam-M.jpg","./assets/images/productos/cam-M-back.jpg"],
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 3,
+        "nombre": "ESQUELETO BASIC HOMBRE",
+        "categoria": "BASIC",
+        "genero":"hombre",
         "hora": "3–8 horas",
         "usos": [
             "Trail running",
-            "Ascensos largos",
+            "Trekking",
             "Power hiking"
         ],
         "beneficios": [
@@ -50,13 +78,44 @@
             "Close-up mesh",
             "Sudoración ligera"
         ],
-        "imagen": "./assets/images/productos/Producto_2.png",
+        "imagen": ["./assets/images/productos/esq-H.jpg","./assets/images/productos/esq-H-back.jpg"],
         "cta": "Pre-Order"
     },
     {
-        "id": 3,
-        "nombre": "PANTALONETA BASIC",
+        "id": 4,
+        "nombre": "ESQUELETO BASIC MUJER",
         "categoria": "BASIC",
+        "genero":"mujer",
+        "hora": "3–8 horas",
+        "usos": [
+            "Trail running",
+            "Trekking",
+            "Power hiking"
+        ],
+        "beneficios": [
+            "Ventilación extrema",
+            "Máxima respirabilidad",
+            "Secado rápido",
+            "Libertad de movimiento"
+        ],
+        
+        "Sensación": [
+            "Flujo térmico continuo en esfuerzo prolongado"
+        ],
+        "sugerencia_visual": [
+            "Movimiento real",
+            "Aire / respirabilidad",
+            "Close-up mesh",
+            "Sudoración ligera"
+        ],
+        "imagen": ["./assets/images/productos/esq-M.jpg","./assets/images/productos/esq-M-back.jpg"],
+        "cta": "Pre-Order"
+    },
+    {
+        "id": 5,
+        "nombre": "PANTALONETA BASIC HOMBRE",
+        "categoria": "BASIC",
+        "genero":"hombre",
         "hora": "2–6 horas",
         "usos": [
             "Trail running",
@@ -74,41 +133,43 @@
             "Movilidad limpia",
             "Natural"
         ],
-        "imagen": "./assets/images/productos/Producto_3.png",
+        "imagen": ["./assets/images/productos/pant-H.jpg","./assets/images/productos/pant-H-back.jpg"],
         "cta": "Pre-Order"
     },
     {
-        "id": 4,
-        "nombre": "BUFF BASIC",
+        "id": 6,
+        "nombre": "PANTALONETA BASIC MUJER",
         "categoria": "BASIC",
-        "hora": "1–6 horas",
+        "genero":"mujer",
+        "hora": "2–6 horas",
         "usos": [
             "Trail running",
-            "Trekking",
+            "Power hiking",
             "Outdoor diario"
         ],
         "beneficios": [
-            "Alta respirabilidad",
-            "Protección adaptable",
+            "Libertad de zancada",
             "Secado rápido",
-            "Bajo peso"
+            "Confort prolongado",
+            "Estabilidad en movimiento"
         ],
-       
+      
         "Sensación": [
-            "Versátil",
-            "Adaptable"
+            "Movilidad limpia",
+            "Natural"
         ],
-        "imagen": "./assets/images/productos/Producto_4.png",
+        "imagen": ["./assets/images/productos/pant-M.jpg","./assets/images/productos/pant-M-back.jpg"],
         "cta": "Pre-Order"
     },
     {
-        "id": 5,
-        "nombre": "MEDIAS TRAIL BASIC",
+        "id": 7,
+        "nombre": "MEDIAS TRAIL UNISEX",
         "categoria": "BASIC",
+        "genero": "unisex",
         "hora": "2–8 horas",
         "usos": [
             "Trail running",
-            "Ascensos largos",
+            "Trekking",
             "Power hiking"
         ],
         "beneficios": [
@@ -121,7 +182,7 @@
         "Sensación": [
             "Soporte técnico sin rigidez excesiva"
         ],
-        "imagen": "./assets/images/productos/Producto_5.png",
+        "imagen": ["./assets/images/productos/medias.jpg","./assets/images/productos/medias-back.jpg"],
         "cta": "Pre-Order"
     }
 ]
