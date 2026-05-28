@@ -30,16 +30,14 @@ const getUsoIcon = (uso) => {
 export const ProductModal = ({ selectedProduct, onClose }) => {
     const [isNotifyView, setIsNotifyView] = React.useState(false);
 
-    if (!selectedProduct) return null;
-
     React.useEffect(() => {
-        // Bloquear el scroll de la página principal
         document.body.style.overflow = 'hidden';
         return () => {
-            // Restaurar el scroll al cerrar el modal
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'unset';
         };
     }, []);
+
+    if (!selectedProduct) return null;
 
     const handleNotifyClick = () => {
         setIsNotifyView(true);
