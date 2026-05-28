@@ -184,5 +184,29 @@
         ],
         "imagen": ["./assets/images/productos/medias.jpg","./assets/images/productos/medias-back.jpg"],
         "cta": "Pre-Order"
+    },
+    {
+        "id": 8,
+        "nombre": "BUFF TRAIL UNISEX",
+        "categoria": "BASIC",
+        "genero": "unisex",
+        "hora": "1–6 horas",
+        "usos": [
+            "Trail running",
+            "Trekking",
+            "Outdoor diario"
+        ],
+        "beneficios": [
+            "Alta respirabilidad",
+            "Proteccion adaptable",
+            "Secado rápido",
+            "Bajo peso"
+        ],
+       
+        "Sensación": [
+            "Versatil y adaptable"
+        ],
+        "imagen": ["./assets/images/productos/buff.jpg","./assets/images/productos/buff-back.jpg"],
+        "cta": "Pre-Order"
     }
 ]
