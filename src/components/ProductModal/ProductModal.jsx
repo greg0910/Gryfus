@@ -32,6 +32,15 @@ export const ProductModal = ({ selectedProduct, onClose }) => {
 
     if (!selectedProduct) return null;
 
+    React.useEffect(() => {
+        // Bloquear el scroll de la página principal
+        document.body.style.overflow = 'hidden';
+        return () => {
+            // Restaurar el scroll al cerrar el modal
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
+
     const handleNotifyClick = () => {
         setIsNotifyView(true);
     };

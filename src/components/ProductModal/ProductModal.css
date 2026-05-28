@@ -19,11 +19,11 @@
   background-color: var(--color-light-bg);
   width: 100%;
   max-width: 600px;
-  height: 95vh; /* Ocupar máximo 95vh para asegurar que todo quepa sin scroll de la ventana */
-  max-height: 95vh;
+  min-height: 95vh; /* Ocupa al menos 95vh, pero puede crecer más si hay mucho texto */
+  height: auto;
   border-radius: 20px 20px 0 0;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -53,19 +53,18 @@
 }
 
 .modal-scrollable {
-  overflow-y: hidden; /* Sin scroll interno */
+  overflow-y: visible; /* Permite que el contenido fluya */
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: auto;
   padding-bottom: 0; 
 }
 
 .modal-img-wrapper {
   margin-bottom: 0;
   background-color: #d1cfca;
-  flex: 1 1 auto; /* Toma el espacio sobrante y puede encogerse */
-  min-height: 0; /* Permite que se encoja por debajo de su tamaño intrínseco */
-  height: auto;
+  flex: none; /* No se encoge ni estira flexbox */
+  height: 45vh; /* Altura fija para que la imagen siempre se vea perfecta */
   position: relative;
   display: flex;
   align-items: center;
@@ -89,11 +88,11 @@
 
 .modal-details {
   background-color: #e6e5e0;
-  padding:1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto; /* La información de texto no se encoge, toma su alto natural */
-  overflow-y: auto; /* Si por algún milagro el texto es más alto que la pantalla, este bloque puede scrollear solo */
+  flex: 1 0 auto; /* La información de texto crece para llenar el resto del min-height de 95vh */
+  overflow-y: visible;
 }
 
 .modal-header-text {
