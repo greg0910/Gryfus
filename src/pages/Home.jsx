@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Hero } from '../components/Hero/Hero';
 import { Products } from '../components/Products/Products';
 import { System } from '../components/System/System';
@@ -7,7 +8,15 @@ import { ProductModal } from '../components/ProductModal/ProductModal';
 import { ScrollToTop } from '../components/ScrollToTop/ScrollToTop';
 
 export const Home = () => {
+    const navigate = useNavigate();
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Prevent body scroll when modal is open
     useEffect(() => {
@@ -19,10 +28,18 @@ export const Home = () => {
         return () => { document.body.style.overflow = 'unset'; };
     }, [selectedProduct]);
 
+    const handleProductSelect = (producto) => {
+        if (isMobile) {
+            navigate(`/producto/${producto.id}`);
+        } else {
+            setSelectedProduct(producto);
+        }
+    };
+
     return (
         <div className="home-page">
             <Hero />
-            <Products onProductSelect={setSelectedProduct} />
+            <Products onProductSelect={handleProductSelect} />
             <System />
             <Footer />
             <ScrollToTop />
