@@ -18,7 +18,7 @@ const getUsoIcon = (uso) => {
         case 'power hiking':
             return <TbTrekking size={16} strokeWidth={1.5} />;
         case 'trekking':
-        case 'ascensos largos':
+        case 'trekking':
             return <TbMountain size={16} strokeWidth={1.5} />;
         case 'outdoor diario':
             return <TbBackpack size={16} strokeWidth={1.5} />;
